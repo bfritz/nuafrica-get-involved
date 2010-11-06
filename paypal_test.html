@@ -12,6 +12,7 @@
   <script src="jquery-ui-1.8.6.custom.min.js"></script>
   <script src="jshashtable-2.1.js"></script>
   <script src="jquery.numberformatter-1.2.1.js"></script>
+  <script src="donations.js"></script>
     <style type="text/css">
       #slider {
         margin: 10px;
@@ -59,41 +60,6 @@
       flashImpact(amt);
     });
   });
-
-  function calculateImpact(amount) {
-    // -0.01 offset prior to rounding so 1.5 rounds to 1 person instead of 2 people
-    return Math.round(amount * 0.15 - 0.01);
-  }
-
-  function moveSlider(amount) {
-    $("#slider").slider("value", amount);
-    // console.log('moved slider');
-  }
-
-  function updateAmountText(amount) {
-    $("#amount").val(amount);
-    $("#amount").formatNumber({format: "$#,###", locale: "us"});
-
-    // console.log('updated amount');
-  }
-
-  function flashImpact(amount) {
-    var formattedDonationAmount = $("#amount").val();
-    $("#donation_amount").text(formattedDonationAmount);
-
-    var numPeopleHelped = calculateImpact(amount);
-    var suffix = numPeopleHelped == 1 ? " person" : " people";
-
-    // format the number of people helped
-    var formattedPeople = $.formatNumber(numPeopleHelped, {format: "#,###", locale: "us"})
-        + suffix;
-
-    $("#people_text").text(formattedPeople);
-
-    $("#impact").effect('highlight', {}, 2000);
-
-    // console.log('flashed impact message');
-  }
   </script>
 </head>
 <body>
