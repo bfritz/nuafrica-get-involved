@@ -17,22 +17,30 @@
         margin: 10px;
         width: 400px;
       }
+      #impact {
+        width: 600px;
+      }
   </style>
   <script>
   $(document).ready(function() {
+    var initialDonation = 25;
     // add and initialize the slider
     $("#slider").slider({
-      value: 25,
+      value: initialDonation,
       min: 10,
       max: 20000,
       step: 5,
       slide: function(event, ui) {
         updateAmountText(ui.value);
+      },
+      change: function(event, ui) {
         flashImpact(ui.value);
       }
     });
 
-    updateAmountText($("#slider").slider("value"));
+    // initialize amount text field and impact statement
+    updateAmountText(initialDonation);
+    flashImpact(initialDonation);
 
     // update donation amount when user clicks on links for specific dollar amounts
     $(".amount").click(function(event) {
@@ -82,9 +90,7 @@
 
     $("#people_text").text(formattedPeople);
 
-    $("#impact").clearQueue();
-    $("#impact").slideUp('fast');
-    $("#impact").slideDown('slow');
+    $("#impact").effect('highlight', {}, 2000);
 
     // console.log('flashed impact message');
   }
@@ -131,7 +137,7 @@
     <a href="#" class="amount" style="margin-left: 10px">$10,000</a>
     <a href="#" class="amount" style="margin-left: 10px">$20,000</a>
   </div>
-  <div id="impact" style="display: none;">
+  <div id="impact">
     Your donation of <span id="donation_amount"></span>
     will help <span id="people_text"></span>
     have clean drinking water for 25 years.
