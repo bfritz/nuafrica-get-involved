@@ -1,65 +1,64 @@
 <html>
 <head>
-  <!--
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  -->
-  <link href="jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <!--
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-  -->
+
+  <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css"/>
+  <style type="text/css">
+    #slider {
+      margin: 10px;
+      width: 600px;
+    }
+    #impact {
+      width: 800px;
+    }
+  </style>
+
   <script src="jquery-1.4.2.js"></script>
   <script src="jquery-ui-1.8.6.custom.min.js"></script>
   <script src="jshashtable-2.1.js"></script>
   <script src="jquery.numberformatter-1.2.1.js"></script>
   <script src="donations.js"></script>
-    <style type="text/css">
-      #slider {
-        margin: 10px;
-        width: 400px;
-      }
-      #impact {
-        width: 600px;
-      }
-  </style>
   <script>
-  $(document).ready(function() {
-    var initialDonation = 25;
-    // add and initialize the slider
-    $("#slider").slider({
-      value: initialDonation,
-      min: 10,
-      max: 20000,
-      step: 5,
-      slide: function(event, ui) {
-        updateAmountText(ui.value);
-      },
-      change: function(event, ui) {
-        flashImpact(ui.value);
-      }
-    });
 
-    // initialize amount text field and impact statement
-    updateAmountText(initialDonation);
-    flashImpact(initialDonation);
+      var jq = jQuery.noConflict();
+      jq(document).ready(function() {
+          var initialDonation = 25;
+          // add and initialize the slider
+          jq("#slider").slider({
+              value: initialDonation,
+              min: 10,
+              max: 20000,
+              step: 5,
+              slide: function(event, ui) {
+                  updateAmountText(ui.value);
+              },
+              change: function(event, ui) {
+                  updatePayPal(ui.value);
+                  flashImpact(ui.value);
+              }
+          });
 
-    // update donation amount when user clicks on links for specific dollar amounts
-    $(".amount").click(function(event) {
-      var amt = $(event.target).parseNumber({format: "#,###", locale: "us"}, false);
-      updateAmountText(amt);
-      moveSlider(amt);
-      flashImpact(amt);
-    });
+          // update donation amount when user clicks on links for specific dollar amounts
+          jq(".amount").click(function(event) {
+              var amt = jq(event.target).parseNumber({format: "#,###", locale: "us"}, false);
+              updateAmountText(amt);
+              updatePayPal(amt);
+              moveSlider(amt);
+              flashImpact(amt);
+          });
 
-    // format manually entered amounts and sync slider
-    $("#amount").blur(function() {
-      // console.log('blur');
-      var amt = $(this).parseNumber({format: "#,###", locale: "us"}, false);
-      updateAmountText(amt);
-      moveSlider(amt);
-      flashImpact(amt);
-    });
-  });
+          // format manually entered amounts and sync slider
+          jq("#amount").blur(function() {
+              var amt = jq(this).parseNumber({format: "#,###", locale: "us"}, false);
+              updateAmountText(amt);
+              updatePayPal(amt);
+              moveSlider(amt);
+              flashImpact(amt);
+          });
+
+          // initialize amount text field and impact statement
+          updateAmountText(initialDonation);
+          flashImpact(initialDonation);
+      });
   </script>
 </head>
 <body>
@@ -69,39 +68,37 @@
   builds solar powered wells.
 </p>
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<form id="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
   <input type="hidden" name="cmd" value="_donations"/>
   <input type="hidden" name="business" value="info@nuafrica.org"/>
   <input type="hidden" name="lc" value="US"/>
-  <input type="hidden" name="amount" value="12.34"/>
+  <input type="hidden" name="amount" value=""/>
   <input type="hidden" name="item_name" value="NuAfrica Donation"/>
   <input type="hidden" name="item_number" value="Getting Involved"/>
   <input type="hidden" name="no_note" value="0"/>
   <input type="hidden" name="currency_code" value="USD"/>
   <input type="hidden" name="bn" value="PP-DonationsBF:Donate_button_R1.png:NonHostedGuest"/>
 
-  <div>
-    <label for="amount">Donate </label>
+  <div id="donation_box">
+    Donate
     <input type="text" id="amount" style="border: 1px solid black; color: #f6931f; font-weight: bold;" />
-    <label for="amount"> to build solar powered wells.</label>
+    to build solar powered wells.
   </div>
 
   <div id="slider" style="float: left;"></div>
-  <!--
-  [donate]
-  -->
-  <input type="image" src="Donate_button_R1.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+
+  <input type="image" src="/wp-content/uploads/2010/07/Donate_button_R1.png" border="0" name="submit" alt=Donate to NuAfrica with PayPal"">
     <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
   </input>
-  <div>
-    <a href="#" class="amount" style="margin-left: 10px">$10</a>
-    <a href="#" class="amount" style="margin-left: 10px">$25</a>
-    <a href="#" class="amount" style="margin-left: 10px">$50</a>
-    <a href="#" class="amount" style="margin-left: 10px">$100</a>
-    <a href="#" class="amount" style="margin-left: 10px">$1,000</a>
-    <a href="#" class="amount" style="margin-left: 10px">$5,000</a>
-    <a href="#" class="amount" style="margin-left: 10px">$10,000</a>
-    <a href="#" class="amount" style="margin-left: 10px">$20,000</a>
+  <div id="donation_amounts">
+    <a class="amount" style="margin-left: 10px">$10</a>
+    <a class="amount" style="margin-left: 10px">$25</a>
+    <a class="amount" style="margin-left: 10px">$50</a>
+    <a class="amount" style="margin-left: 10px">$100</a>
+    <a class="amount" style="margin-left: 10px">$1,000</a>
+    <a class="amount" style="margin-left: 10px">$5,000</a>
+    <a class="amount" style="margin-left: 10px">$10,000</a>
+    <a class="amount" style="margin-left: 10px">$20,000</a>
   </div>
   <div id="impact">
     Your donation of <span id="donation_amount"></span>
