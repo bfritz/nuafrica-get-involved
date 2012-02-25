@@ -34,6 +34,7 @@ function updatePayPal(amount) {
 }
 
 function flashImpact(amount) {
+    // jq.debounce(250, function() {
     var formattedDonationAmount = jq("#amount").val();
     jq("#donation_amount").text(formattedDonationAmount);
 
@@ -48,4 +49,5 @@ function flashImpact(amount) {
 
     jq("#impact").effect('highlight', {}, 2000);
     // console.log('flashed impact message');
+    // });
 }

@@ -47,6 +47,7 @@ Shadowbox.init({
 
   <script type="text/javascript" src="/wp-includes/js/jquery/jquery.js?ver=1.4.2"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery-ui-1.8.6.custom.min.js"></script>
+  <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.ba-throttle-debounce.min.js"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jshashtable-2.1.js"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.numberformatter-1.2.1.min.js"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/donations.js"></script>
@@ -118,13 +119,14 @@ Shadowbox.init({
                 <li <?php if(is_page('about')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/about">About</a> </li>   
                   <li <?php if(is_page('events')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/events">Events</a> </li>      
                 
-                <li <?php if(is_page('products-page')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/products-page">Store</a> </li>
                 
-                <li <?php if(is_page('get-involved')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/get-involved">Get Involved</a> </li>    
+                <li <?php if(is_page('get-involved')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/get-involved">Get Involved / Give</a> </li>  
+                
+                <li <?php if(is_page('products-page')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/products-page">Our Shop</a> </li>   
                 
                 <li <?php if(is_page('sponsors')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/sponsors">Sponsors</a> </li> 
                 
-                 <li <?php if(is_page('theblog')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/theblog">Blog</a> </li>    
+                 <li <?php if(is_page('theblog')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/drill4water2012/"><img src="http://nuafrica.org/wp-content/themes/heliumified/images/Drill4Water.png" width="103" height="30" alt="Drill4Water" border="2"></a> </li>    
                  
                    <li <?php if(is_page('contact')) echo'class="current_page_item"'; ?>> <a href="<?php bloginfo('url'); ?>/contact">Contact</a> </li>               
 				
