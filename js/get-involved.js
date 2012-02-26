@@ -3,6 +3,9 @@
 
     Written for NuAfrica by Brad Fritz, brad [at] fewerhassles.com,
     on Sat Nov  6 12:54:53 EDT 2010 during IndyGiveCamp.
+
+    Latest code and project history can be found at:
+    https://github.com/bfritz/nuafrica-get-involved
 */
 
 var jq = jQuery.noConflict();
