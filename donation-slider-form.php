@@ -32,7 +32,7 @@
   </div>
 
  
-   <input type="image" src="/wp-content/uploads/2010/07/Donate_button_R1.png" border="0" name="submit" alt=Donate to NuAfrica with PayPal"">
+   <input type="image" src="/wp-content/uploads/2010/07/Donate_button_R1.png" border="0" name="submit" alt="Donate to NuAfrica with PayPal">
     <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
   </input>
   
