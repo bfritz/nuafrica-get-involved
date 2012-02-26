@@ -139,3 +139,48 @@ function _flashImpact(amount) {
     jq("#impact").effect('highlight', {}, 2000);
     // log('flashed impact message');
 }
+
+jq(document).ready(function() {
+    var initialDonation = 25;
+    // add and initialize the slider
+    jq("#slider").slider({
+        value: valueToPercent(initialDonation),
+        min: 0,
+        max: 100,
+        step: 1,
+        slide: function(event, ui) {
+            var amt = percentToValue(ui.value);
+            updateAmountText(amt);
+        },
+        change: function(event, ui) {
+            var amt = percentToValue(ui.value);
+            updatePayPal(amt);
+            flashImpact(amt);
+        }
+    });
+
+    // add scale to slider
+    jq("#donation_amounts").html(generateScale());
+
+    // update donation amount when user clicks on links for specific dollar amounts
+    jq(".amount").click(function(event) {
+        var amt = jq(event.target).parseNumber({format: "#,###", locale: "us"}, false);
+        updateAmountText(amt);
+        updatePayPal(amt);
+        moveSlider(amt);
+        flashImpact(amt);
+    });
+
+    // format manually entered amounts and sync slider
+    jq("#amount").on("blur", function() {
+        var amt = jq(this).parseNumber({format: "#,###", locale: "us"}, false);
+        updateAmountText(amt);
+        updatePayPal(amt);
+        moveSlider(amt);
+        flashImpact(amt);
+    });
+
+    // initialize amount text field and impact statement
+    updateAmountText(initialDonation);
+    flashImpact(initialDonation);
+});

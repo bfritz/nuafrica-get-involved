@@ -50,53 +50,6 @@ Shadowbox.init({
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jshashtable-2.1.js"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.numberformatter-1.2.1.min.js"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/get-involved.js"></script>
-  <script type="text/javascript">
-      var jq = jQuery.noConflict();
-      jq(document).ready(function() {
-          var initialDonation = 25;
-          // add and initialize the slider
-          jq("#slider").slider({
-              value: valueToPercent(initialDonation),
-              min: 0,
-              max: 100,
-              step: 1,
-              slide: function(event, ui) {
-                  var amt = percentToValue(ui.value);
-                  updateAmountText(amt);
-              },
-              change: function(event, ui) {
-                  var amt = percentToValue(ui.value);
-                  updatePayPal(amt);
-                  flashImpact(amt);
-              }
-          });
-
-          // add scale to slider
-          jq("#donation_amounts").html(generateScale());
-
-          // update donation amount when user clicks on links for specific dollar amounts
-          jq(".amount").click(function(event) {
-              var amt = jq(event.target).parseNumber({format: "#,###", locale: "us"}, false);
-              updateAmountText(amt);
-              updatePayPal(amt);
-              moveSlider(amt);
-              flashImpact(amt);
-          });
-
-          // format manually entered amounts and sync slider
-          jq("#amount").on("blur", function() {
-              var amt = jq(this).parseNumber({format: "#,###", locale: "us"}, false);
-              updateAmountText(amt);
-              updatePayPal(amt);
-              moveSlider(amt);
-              flashImpact(amt);
-          });
-
-          // initialize amount text field and impact statement
-          updateAmountText(initialDonation);
-          flashImpact(initialDonation);
-      });
-  </script>
 <?php } ?>
 
 
