@@ -80,7 +80,7 @@ Shadowbox.init({
           });
 
           // format manually entered amounts and sync slider
-          jq("#amount").blur(function() {
+          jq("#amount").on("blur", function() {
               var amt = jq(this).parseNumber({format: "#,###", locale: "us"}, false);
               updateAmountText(amt);
               updatePayPal(amt);
