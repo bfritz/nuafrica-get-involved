@@ -19,6 +19,7 @@
 #impact {
   clear:left;
   font-family:Georgia, "Times New Roman", Times, serif;
+  width:580px !important;
 }
 
 #impact h2 {
@@ -59,10 +60,6 @@
 #people_text {
   font-weight:bold;
   color:#0F93D6;
-}
-
-#impact {
-  width:580px !important;
 }
 
 ul.donate {
