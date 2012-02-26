@@ -108,13 +108,13 @@ function moveSlider(amount) {
 }
 
 function updateAmountText(amount) {
-    jq("#amount").val(amount);
+    jq("#typed_amount").val(amount);
     // try/catch below is ugly hack to work around apparent bug in
     // locale/format initialization in jquery.numberformatter-1.2.1
     try {
-        jq("#amount").formatNumber({format: "$#,###", locale: "us"});
+        jq("#typed_amount").formatNumber({format: "$#,###", locale: "us"});
     } catch(e) {
-        jq("#amount").formatNumber({format: "$#,###", locale: "us"});
+        jq("#typed_amount").formatNumber({format: "$#,###", locale: "us"});
     }
     // log('updated amount');
 }
@@ -124,7 +124,7 @@ function updatePayPal(amount) {
 }
 
 function _flashImpact(amount) {
-    var formattedDonationAmount = jq("#amount").val();
+    var formattedDonationAmount = jq("#typed_amount").val();
     jq("#donation_amount").text(formattedDonationAmount);
 
     var numPeopleHelped = calculateImpact(amount);
@@ -172,7 +172,7 @@ jq(document).ready(function() {
     });
 
     // format manually entered amounts and sync slider
-    jq("#amount").on("blur", function() {
+    jq("#typed_amount").on("blur", function() {
         var amt = jq(this).parseNumber({format: "#,###", locale: "us"}, false);
         updateAmountText(amt);
         updatePayPal(amt);

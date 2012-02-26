@@ -1,5 +1,10 @@
 /* CSS for get-involved page.  Mostly for jQuery donation slider. */
 
+#freeform_donation_area input {
+  margin-left: 4px;
+  width: 5em;
+}
+
 #slider {
   margin:10px;
   width:560px !important;
@@ -53,10 +58,6 @@
   margin:10px 0 0 0;
   font-size:10px;
   color:#666666;
-}
-
-#donation_box {
-  display:none;
 }
 
 #paypal {

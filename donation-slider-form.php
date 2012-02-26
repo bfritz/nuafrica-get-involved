@@ -16,13 +16,12 @@
   <input type="hidden" name="return" value="http://nuafrica.org/get-involved/thank-you/"/>
   <input type="hidden" name="cbt" value="Return to NuAfrica Website"/>
 
- <p>Use slider to select gift amount:</p>
+ <p id="freeform_donation_area">
+   Use slider to select gift amount or type an amount here:
+   <input type="text" id="amount" />
+ </p>
 
   <div id="slider"></div>
-
-  <div id="donation_box">
-    Give <input type="text" id="amount" />
-  </div>
 
   <div id="donation_amounts"></div>
 
