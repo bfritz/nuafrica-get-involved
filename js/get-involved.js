@@ -10,9 +10,10 @@
 
 var jq = jQuery.noConflict();
 
+var PEOPLE_HELPED_PER_DOLLAR = 4/25;
+
 function calculateImpact(amount) {
-    // -0.01 offset prior to rounding so 1.5 rounds to 1 person instead of 2 people
-    return Math.round(amount * 0.15 - 0.01);
+    return Math.floor(amount * PEOPLE_HELPED_PER_DOLLAR);
 }
 
 function moveSlider(amount) {
