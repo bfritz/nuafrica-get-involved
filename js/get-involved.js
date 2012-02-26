@@ -10,6 +10,8 @@
 
 var jq = jQuery.noConflict();
 
+var flashImpact = _.debounce(_flashImpact, 300);
+
 var PEOPLE_HELPED_PER_DOLLAR = 4/25;
 
 function calculateImpact(amount) {
@@ -37,7 +39,7 @@ function updatePayPal(amount) {
     jq("#paypal input[name=amount]").val(amount);
 }
 
-function flashImpact(amount) {
+function _flashImpact(amount) {
     var formattedDonationAmount = jq("#amount").val();
     jq("#donation_amount").text(formattedDonationAmount);
 
