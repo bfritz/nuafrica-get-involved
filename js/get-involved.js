@@ -184,3 +184,16 @@ jq(document).ready(function() {
     updateAmountText(initialDonation);
     flashImpact(initialDonation);
 });
+
+function prepareDonationForm() {
+    jq("a[name=give]").insertBefore("#donation_target");
+    jq("#donation_target").replaceWith(jq("#paypal"));
+    jq("#paypal").show();
+    // center scale values
+    var w = jq("#donation_amounts").width();
+    jq("#donation_amounts span ins").each(function(){
+        var percentRight = jq(this).parent().position().left / w;
+        var offset = percentRight * -1 * (30 + (jq(this).outerWidth() / 2));
+        jq(this).css({marginLeft: offset});
+    });
+}
