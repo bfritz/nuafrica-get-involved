@@ -387,8 +387,8 @@ var Hashtable = (function() {
 })();
 
 /**
- * Plugin: jquery.numberformatter-1.2.1.js 
- * SHA1:   d028aeca52af8887a386eeb902d005b8256d5862
+ * Plugin: jquery.numberformatter-1.2.3.js
+ * SHA1:   e7b40be7c1ed8167fd4ccd7eb148fa2b73a7731f
  * Why:    Used to convert numbers into currency values for donation
  *         slider on "Get Involved" page.
  */
@@ -404,7 +404,7 @@ var Hashtable = (function() {
  * and GPL (GPL-LICENSE.txt) licenses.
  *
  * @author Michael Abernethy, Andrew Parry
- * @version 1.2.1-RELEASE ($Id$)
+ * @version 1.2.3-SNAPSHOT ($Id$)
  * 
  * Dependencies
  * 
@@ -514,7 +514,7 @@ var Hashtable = (function() {
 
 	function init() {
 		// write the arrays into the hashtable
-		for (var localeGroupIdx in nfAllLocales) {
+		for (var localeGroupIdx = 0; localeGroupIdx < nfAllLocales.length; localeGroupIdx++) {
 			localeGroup = nfAllLocales[localeGroupIdx];
 			for (var i = 0; i < localeGroup.length; i++) {
 				nfLocales.put(localeGroup[i], localeGroupIdx);
@@ -522,7 +522,7 @@ var Hashtable = (function() {
 		}
 	};
 
-	function formatCodes(locale) {
+	function formatCodes(locale, isFullLocale) {
 		if (nfLocales.size() == 0)
 			init();
 
@@ -530,7 +530,16 @@ var Hashtable = (function() {
          var dec = ".";
          var group = ",";
          var neg = "-";
-		 
+         
+         if (isFullLocale == false) {
+	         // Extract and convert to lower-case any language code from a real 'locale' formatted string, if not use as-is
+	         // (To prevent locale format like : "fr_FR", "en_US", "de_DE", "fr_FR", "en-US", "de-DE")
+	         if (locale.indexOf('_') != -1)
+				locale = locale.split('_')[1].toLowerCase();
+			 else if (locale.indexOf('-') != -1)
+				locale = locale.split('-')[1].toLowerCase();
+		}
+
 		 // hashtable lookup to match locale with codes
 		 var codesIndex = nfLocales.get(locale);
 		 if (codesIndex) {
@@ -596,7 +605,7 @@ var Hashtable = (function() {
 	 */
 	jQuery.formatNumber = function(numberString, options){
 		var options = jQuery.extend({}, jQuery.fn.formatNumber.defaults, options);
-		var formatData = formatCodes(options.locale.toLowerCase());
+		var formatData = formatCodes(options.locale.toLowerCase(), options.isFullLocale);
 		
 		var dec = formatData.dec;
 		var group = formatData.group;
@@ -649,7 +658,7 @@ var Hashtable = (function() {
 	 */
 	jQuery._formatNumber = function(number, options, suffix, prefix, negativeInFront) {
 		var options = jQuery.extend({}, jQuery.fn.formatNumber.defaults, options);
-		var formatData = formatCodes(options.locale.toLowerCase());
+		var formatData = formatCodes(options.locale.toLowerCase(), options.isFullLocale);
 		
 		var dec = formatData.dec;
 		var group = formatData.group;
@@ -715,7 +724,7 @@ var Hashtable = (function() {
 			onesFormat = options.format.substring(0, options.format.indexOf("."));
 
 		var onePortion = "";
-		if (!(ones == 0 && onesFormat.substr(-1,1) == '#') || forcedToZero) {
+		if (!(ones == 0 && onesFormat.substr(onesFormat.length - 1) == '#') || forcedToZero) {
 			// find how many digits are in the group
 			var oneText = new String(Math.abs(ones));
 			var groupLength = 9999;
@@ -730,7 +739,29 @@ var Hashtable = (function() {
 					groupCount = 0;
 				}
 			}
+			
+			// account for any pre-data padding
+			if (onesFormat.length > onePortion.length) {
+				var padStart = onesFormat.indexOf('0');
+				if (padStart != -1) {
+					var padLen = onesFormat.length - padStart;
+					
+					// pad to left with 0's or group char
+					var pos = onesFormat.length - onePortion.length - 1;
+					while (onePortion.length < padLen) {
+						var padChar = onesFormat.charAt(pos);
+						// replace with real group char if needed
+						if (padChar == ',')
+							padChar = group;
+						onePortion = padChar + onePortion;
+						pos--;
+					}
+				}
+			}
 		}
+		
+		if (!onePortion && onesFormat.indexOf('0', onesFormat.length - 1) !== -1)
+   			onePortion = '0';
 
 		returnString = onePortion + returnString;
 
@@ -794,7 +825,7 @@ var Hashtable = (function() {
 	 */
 	jQuery.parseNumber = function(numberString, options) {
 		var options = jQuery.extend({}, jQuery.fn.parseNumber.defaults, options);
-		var formatData = formatCodes(options.locale.toLowerCase());
+		var formatData = formatCodes(options.locale.toLowerCase(), options.isFullLocale);
 
 		var dec = formatData.dec;
 		var group = formatData.group;
@@ -808,7 +839,7 @@ var Hashtable = (function() {
 		numberString = numberString.replace(dec,".").replace(neg,"-");
 		var validText = "";
 		var hasPercent = false;
-		if (numberString.charAt(numberString.length-1)=="%")
+		if (numberString.charAt(numberString.length - 1) == "%" || options.isPercentage == true)
 			hasPercent = true;
 		for (var i=0; i<numberString.length; i++) {
 			if (valid.indexOf(numberString.charAt(i))>-1)
@@ -817,7 +848,13 @@ var Hashtable = (function() {
 		var number = new Number(validText);
 		if (hasPercent) {
 			number = number / 100;
-			number = number.toFixed(validText.length-1);
+			var decimalPos = validText.indexOf('.');
+			if (decimalPos != -1) {
+				var decimalPoints = validText.length - decimalPos - 1;
+				number = number.toFixed(decimalPoints + 2);
+			} else {
+				number = number.toFixed(validText.length - 1);
+			}
 		}
 
 		return number;
@@ -825,7 +862,9 @@ var Hashtable = (function() {
 
 	jQuery.fn.parseNumber.defaults = {
 		locale: "us",
-		decimalSeparatorAlwaysShown: false
+		decimalSeparatorAlwaysShown: false,
+		isPercentage: false,
+		isFullLocale: false
 	};
 
 	jQuery.fn.formatNumber.defaults = {
@@ -833,7 +872,34 @@ var Hashtable = (function() {
 		locale: "us",
 		decimalSeparatorAlwaysShown: false,
 		nanForceZero: true,
-		round: true
+		round: true,
+		isFullLocale: false
+	};
+	
+	Number.prototype.toFixed = function(precision) {
+    	return jQuery._roundNumber(this, precision);
+	};
+	
+	jQuery._roundNumber = function(number, decimalPlaces) {
+		var power = Math.pow(10, decimalPlaces || 0);
+    	var value = String(Math.round(number * power) / power);
+    	
+    	// ensure the decimal places are there
+    	if (decimalPlaces > 0) {
+    		var dp = value.indexOf(".");
+    		if (dp == -1) {
+    			value += '.';
+    			dp = 0;
+    		} else {
+    			dp = value.length - (dp + 1);
+    		}
+    		
+    		while (dp < decimalPlaces) {
+    			value += '0';
+    			dp++;
+    		}
+    	}
+    	return value;
 	};
 
  })(jQuery);
