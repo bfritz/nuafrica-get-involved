@@ -35,15 +35,6 @@ Shadowbox.init({
   <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'template_directory' ); ?>/js/jquery-ui-1.8.6.custom.css"/>
 -->
   <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css"/>
-  <style type="text/css">
-    #slider {
-      margin: 10px;
-      width: 600px;
-    }
-    #impact {
-      width: 800px;
-    }
-  </style>
 
   <script type="text/javascript" src="/wp-includes/js/jquery/jquery.js?ver=1.4.2"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery-ui-1.8.6.custom.min.js"></script>

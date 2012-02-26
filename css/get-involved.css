@@ -1,6 +1,7 @@
 /* CSS for get-involved page.  Mostly for jQuery donation slider. */
 
 #slider {
+  margin:10px;
   width:560px !important;
 }
 
