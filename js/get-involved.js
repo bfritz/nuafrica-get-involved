@@ -119,8 +119,9 @@ function updateAmountText(amount) {
     // log('updated amount');
 }
 
-function updatePayPal(amount) {
-    jq("#paypal input[name=amount]").val(amount);
+function updatePayPal() {
+    jq("#paypal input[name=amount]").val(
+        jq("#typed_amount").parseNumber({format: "#,###", locale: "us"}, false));
 }
 
 function _flashImpact(amount) {
@@ -154,7 +155,6 @@ jq(document).ready(function() {
         },
         change: function(event, ui) {
             var amt = percentToValue(ui.value);
-            updatePayPal(amt);
             flashImpact(amt);
         }
     });
@@ -166,7 +166,6 @@ jq(document).ready(function() {
     jq(".amount").click(function(event) {
         var amt = jq(event.target).parseNumber({format: "#,###", locale: "us"}, false);
         updateAmountText(amt);
-        updatePayPal(amt);
         moveSlider(amt);
         flashImpact(amt);
     });
@@ -175,7 +174,6 @@ jq(document).ready(function() {
     jq("#typed_amount").on("blur", function() {
         var amt = jq(this).parseNumber({format: "#,###", locale: "us"}, false);
         updateAmountText(amt);
-        updatePayPal(amt);
         moveSlider(amt);
         flashImpact(amt);
     });
@@ -189,6 +187,7 @@ function prepareDonationForm() {
     jq("a[name=give]").insertBefore("#donation_target");
     jq("#donation_target").replaceWith(jq("#paypal"));
     jq("#paypal").show();
+    jq("#paypal").submit(updatePayPal);
     // center scale values
     var w = jq("#donation_amounts").width();
     jq("#donation_amounts span ins").each(function(){
