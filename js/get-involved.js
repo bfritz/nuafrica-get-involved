@@ -20,7 +20,7 @@ function calculateImpact(amount) {
 
 function moveSlider(amount) {
     jq("#slider").slider("value", amount);
-    // console.log('moved slider');
+    // log('moved slider');
 }
 
 function updateAmountText(amount) {
@@ -32,7 +32,7 @@ function updateAmountText(amount) {
     } catch(e) {
         jq("#amount").formatNumber({format: "$#,###", locale: "us"});
     }
-    // console.log('updated amount');
+    // log('updated amount');
 }
 
 function updatePayPal(amount) {
@@ -53,5 +53,5 @@ function _flashImpact(amount) {
     jq("#people_text").text(formattedPeople);
 
     jq("#impact").effect('highlight', {}, 2000);
-    // console.log('flashed impact message');
+    // log('flashed impact message');
 }
