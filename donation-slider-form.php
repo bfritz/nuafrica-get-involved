@@ -24,16 +24,8 @@
     Give <input type="text" id="amount" />
   </div>
 
-  <div id="donation_amounts">
-    <a class="amount" style="margin-left: 10px">$10</a>
-    <a class="amount" style="margin-left: 10px">$25</a>
-    <a class="amount" style="margin-left: 10px">$50</a>
-    <a class="amount" style="margin-left: 10px">$100</a>
-    <a class="amount" style="margin-left: 15px">$1,000</a>
-    <a class="amount" style="margin-left: 15px">$5,000</a>
-    <a class="amount" style="margin-left: 15px">$10,000</a>
-    <a class="amount" style="margin-left: 15px">$20,000</a>
-  </div>
+  <div id="donation_amounts"></div>
+
   <div id="impact">
     <h3>Your donation of <span id="donation_amount"></span>
     will:</h3>
@@ -53,6 +45,14 @@
     jq(document).ready(function() {
         jq("a[name=give]").insertBefore("#donation_target");
         jq("#donation_target").replaceWith(jq("#paypal"));
+        jq("#paypal").show();
+        // center scale values
+        var w = jq("#donation_amounts").width();
+        jq("#donation_amounts span ins").each(function(){
+            var percentRight = jq(this).parent().position().left / w;
+            var offset = percentRight * -1 * (30 + (jq(this).outerWidth() / 2));
+            jq(this).css({marginLeft: offset});
+        });
     });
 </script>
 <?php ?>

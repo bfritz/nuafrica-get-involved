@@ -6,14 +6,26 @@
 
 #donation_amounts {
   clear:left;
-  overflow:hidden;
+  height: 20px;
   margin-bottom:30px;
+  position:relative;
+
+  /* width: 600px; */
 }
 
-#donation_amounts a {
-  float:left;
+#donation_amounts span {
+  position:absolute;
+}
+
+#donation_amounts span ins {
   font-size:10px;
   color:#999;
+  left:0;
+  position:absolute;
+}
+
+#donation_amounts span ins:hover {
+    cursor: pointer;
 }
 
 #impact {
@@ -40,11 +52,6 @@
   margin:10px 0 0 0;
   font-size:10px;
   color:#666666;
-}
-
-#amount {
-  width:15px;
-  background:none;
 }
 
 #donation_box {

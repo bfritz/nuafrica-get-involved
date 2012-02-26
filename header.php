@@ -56,18 +56,23 @@ Shadowbox.init({
           var initialDonation = 25;
           // add and initialize the slider
           jq("#slider").slider({
-              value: initialDonation,
-              min: 10,
-              max: 20000,
-              step: 5,
+              value: valueToPercent(initialDonation),
+              min: 0,
+              max: 100,
+              step: 1,
               slide: function(event, ui) {
-                  updateAmountText(ui.value);
+                  var amt = percentToValue(ui.value);
+                  updateAmountText(amt);
               },
               change: function(event, ui) {
-                  updatePayPal(ui.value);
-                  flashImpact(ui.value);
+                  var amt = percentToValue(ui.value);
+                  updatePayPal(amt);
+                  flashImpact(amt);
               }
           });
+
+          // add scale to slider
+          jq("#donation_amounts").html(generateScale());
 
           // update donation amount when user clicks on links for specific dollar amounts
           jq(".amount").click(function(event) {
