@@ -50,7 +50,7 @@ Shadowbox.init({
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.ba-throttle-debounce.min.js"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jshashtable-2.1.js"></script>
   <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/jquery.numberformatter-1.2.1.min.js"></script>
-  <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/donations.js"></script>
+  <script type="text/javascript" src="<?php bloginfo( 'template_directory' ); ?>/js/get-involved.js"></script>
   <script type="text/javascript">
       var jq = jQuery.noConflict();
       jq(document).ready(function() {
