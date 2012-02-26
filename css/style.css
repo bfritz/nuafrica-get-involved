@@ -1,680 +1,373 @@
 /*
-
 Theme Name: Heliumified WordPress Theme
-
 Theme URI: http://www.paddsolutions.com/wordpress-theme-heliumified/
-
 Description: Heliumified is a 5-in-1 professional free WordPress theme with customized widgets. Download more <a href="http://www.paddsolutions.com">free WordPress Themes</a>.
-
 Version: 1.0
-
 Author: Padd Solutions
-
 Author URI: http://www.paddsolutions.com
-
 Tags: fixed width, valid css, valid xhtml, featured content, youtube, social bookmarks, popular posts, featured photos
-
 */
 
-
-
 /* DEFAULT */
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;font-weight: 100;font-style: normal;font-size: 100%;font-family: inherit;vertical-align: baseline;}
-
 body {line-height: 1;color: black;background: white;}
-
 ol, ul {list-style: none;}
-
 table {border-collapse: separate;}
-
 caption,th,td{text-align: left;font-weight: normal;}
 
-
-
 /* REGULAR CODING */
-
 body{line-height:2; padding:0; font-family: Georgia, serif; font-size:12px; color:#333;}
-
 a{text-decoration:underline; color:#000;}
-
 a:hover{text-decoration:none;}
 
-	
-
-	
-
 	#top-bar {
-
 	background:url(images/top-bar-bg.gif) repeat-y top center;
-
 	height:20px;
-
 	}
 
-	
-
-
-
-/* STRUCTURE   */
-
+/* STRUCTURE */
 #container{margin: 0px auto; background:#fff url(images/container.png) no-repeat center top; border-top:#999 1px solid;}
-
 #holder, .holder{width:960px; margin: 0px auto;}
-
 #header{padding-top:25px; height:100px;}
-
 #nav-main{float:right; margin-top:10px; height:30px; line-height:30px;}
-
 #content-box{}
-
 #main-panel{float:left; width:635px; margin-right:40px; padding-bottom:50px;}
-
 #sidebar{float:left; width:250px; background:url(images/sidebar.gif) repeat-y center; border-top:1px solid #ccc;}
-
 #bottom-box{position:relative; top:30px; color:#999; background:#eeeff0 url(images/duo.gif) repeat-x top; padding:25px 0 100px 0; line-height:1.4;}
-
 #footer{position:relative; top:30px; font-size:10px; color:#fff; border-top:#d2d4d5 1px solid; height:20px; background:url(images/top-bar-bg.gif) repeat-y top center;}
 
-
-
 /* HEADER */
-
 #logo{}
 
-
-
 /* NAVIGATION */
-
 #nav-main li{float:left; margin:0; font-family: 'Trebuchet MS', Helvetica, sans-serif;}
-
 #nav-main li a{float:left; color:#999; padding:0 12px; text-transform:uppercase;}
-
 #nav-main li a:hover{color:#000; text-decoration:none;}
-
 #nav-main li.current_page_item{background:url(images/nav_cur_right.png) no-repeat right top;}
-
 #nav-main li.current_page_item a{background:url(images/nav_cur_left.png) no-repeat left top; color:#fff; outline:none;}
 
-
-
 /* CONTENT */
-
 #featured{background:url(images/featured.png) repeat-y center;}
-
 #featured .fea-top{background:url(images/featured.png) no-repeat left top;}
-
 #featured .fea-bot{background:url(images/featured.png) no-repeat right bottom; padding:25px 0 40px 0;}
-
 #featured .fea-img{float:left; margin:0 30px 0 0;}
-
 #featured h2{font-size:36px; line-height:1;}
-
 #featured p{color:#666; font-size:18px; font-style:italic; padding:10px 0;}
 
-
-
 #hom-con{margin:10px 0; float:left;}
-
 #hom-con li{width:180px; float:left; padding:15px 70px; background:url(images/home_box.jpg) no-repeat center top; font-family: 'Trebuchet MS', Helvetica, sans-serif; color:#666;}
-
 #hom-con h3{font-size:18px; font-weight:bold; text-transform:uppercase; line-height:30px;}
-
 	#hom-con h3.ico-star{background:url(images/ico_star.png) no-repeat left top; padding-left:40px;}
-
 	#hom-con h3.ico-gear{background:url(images/ico_gear.png) no-repeat left top; padding-left:40px;}
-
 	#hom-con h3.ico-mail{background:url(images/ico_mail.png) no-repeat left top; padding-left:40px;}
-
 	#hom-con h3.ico-video{background:url(images/ico-movie.png) no-repeat left top; padding-left:40px; margin-bottom:10px;}
-
 #hom-con p{padding:10px 0;}
 
-
-
-
-
 	/* SIDEBAR */
-
 	#sidebar .main-ad{line-height:1;}
-
 	#sidebar a{color:#000;}
-
 	.box{background:url(images/duo.gif) repeat-x top;}
-
 	.box h3, #sidebar h3{font-size:14px; color:#000; text-transform:uppercase; padding:0 10px; line-height:30px;}
-
 	.box .box-content{ padding:10px;}
-
 	.box:last-child .box-content{background:url(images/duo2.gif) repeat-x bottom;}
-
 	.box ul li{background:url(images/duo.gif) repeat-x bottom; padding:3px 0;}
-
 	.box ul li:last-child{background:none;}
-
 	.flickrrss a{padding:3px;}
-
 	.flickrrss a img{width:70px;}
-
 	.heliumified-popolar-posts li{padding:8px 0 10px!important; float:left; width:100%;}
-
 	.heliumified-popolar-posts img{vertical-align:top; margin:0 8px 0 0; float:left;}
-
 	.heliumified-popolar-posts .comment{color:#999!important;}
-
 	ul.hf-subscribe{padding-left:12px;}
-
 	ul.hf-subscribe li{float:left; padding:0!important; background:none; margin:0 9px;}
-
 	ul.hf-subscribe li a{float:left; width:31px; height:31px; background-image:url(images/social.png); background-repeat:no-repeat; overflow:hidden; text-indent:-9000px;}
-
 		ul.hf-subscribe li a.subscribe-goog{background-position:0px 0px;}
-
 		ul.hf-subscribe li a.subscribe-twit{background-position:-31px 0px;}
-
 		ul.hf-subscribe li a.subscribe-fb{background-position:-62px 0px;}
-
 		ul.hf-subscribe li a.subscribe-feed{background-position:-93px 0px;}
-
 		ul.hf-subscribe li a.subscribe-mail{background-position:-124px 0px;}
-
 		ul.hf-subscribe li a.subscribe-youtube{background:url(images/ico_youtube.png) no-repeat 0 0;}
-
-		
-
-		
-
 	
-
 		/* SEARCH */
-
 		#searchform{padding:10px; background:url(images/duo.gif) repeat-x top; display:none;}
-
 		#s{color:#333; height:20px; padding:8px 5px 2px 28px; width:130px; border:#fff solid; border-width:1px 0 1px 1px; background:#d2d4d5 url(images/search.gif) no-repeat 7px 9px;}
-
 		#searchsubmit{background:#333; height:30px; color:#aaa; border:0; cursor:pointer;}
-
 		
-
 	/* POST */
-
 	.post-date{float:left; width:50px; height:58px; background:url(images/date.png) no-repeat; text-align:center; line-height:29px; color:#999; font-size:24px; clear:both;}
-
 	.post-date span{display:block; color:#333; font-size:12px; text-transform:uppercase;}
-
 	.post{margin:0 0 20px 80px;}
-
 	.post a{color:#000;}
-
 	.post-pic{border:#d2d4d5 1px solid; display:inline-block; line-height:1; -moz-border-radius:5px; -webkit-border-radius:5px; margin-bottom:15px;}
-
 	.post-pic img{border:#fff solid; border-width:1px 1px 0 1px; background:#eeeff0; padding:18px; -moz-border-radius:5px; -webkit-border-radius:5px;}
-
 	.post-title, .post-title a{font-size:25px; color:#333; line-height:1.3; text-decoration: none; }
-
 	.post-title a:hover{text-decoration:none; color:#000;}
-
 	.post-auth{color:#999;}
-
 	.post-auth a{color:#333;}
-
 	.post-meta a{text-decoration:underline;}
-
 	.post-meta a:hover{text-decoration:none;}
-
 	
-
 	.post-content{font-family: Verdana, Geneva, sans-serif; padding:15px 0 0 0;}
-
 	.post-content p{padding:0 0 20px 0;}
-
 	.post-content ul{list-style-type:disc; margin:10px 0 10px 20px;}
-
 	.post-content ol{list-style-type:decimal; margin:10px 0 10px 25px;}
-
 	.post-content blockquote{margin:10px 20px; background:#f5f5f5; padding:10px;}
-
 	.post-content blockquote p{padding:0;}
-
 	.post-content h1{font-size:17px; font-weight:bold;}
-
 	.post-content h2{font-size:15px; font-weight:bold;}
-
 	.post-content h3{font-size:13px; font-weight:bold;}
-
 	.post-content b, .post-content strong{font-weight:bold;}
-
 	.post-content i, .post-content em{font-style:italic;}
-
 	
-
 	/* .navigation{margin:5px 0 5px 80px; padding:15px 0; border-top:#d2d4d5 1px solid;} */
-
 	.navigation2{margin:0 0 0 80px; padding:0;}
-
 	.navigation a, .navigation2 a{background:#eeeff0; color:#333; border:#d2d4d5 1px solid; padding:5px;}
 
-
-
 		/* Wordpress Classes */
-
 		.aligncenter, div.aligncenter {display: block; margin-left: auto; margin-right: auto;}
-
 		.alignleft{float: left; margin:0 10px 10px 0;}
-
 		.alignright{float: right; margin:0 0 10px 10px;}
-
 		.wp-caption {border: 1px solid #ddd;text-align: center;background-color: #f3f3f3;padding-top: 4px;margin: 10px;}
-
 		.wp-caption p.wp-caption-text {font-size: 11px;line-height: 17px;padding: 0 4px 5px;margin: 0;}
-
 		
-
 	/* COMMENT */
-
 	#comments, #respond{font-size:18px; color:#333;margin-bottom:5px; clear:both; margin-left:80px;}
-
 	#commentform p{padding:8px 0; font-size:12px;}
-
 	#commentform label{width:100px; float:left; text-align:right; margin:0 10px 0 0; line-height:25px;}
-
 	#commentform .req{color:#f00;}
-
 	#author, #email, #url{width:240px; height:20px; padding:5px 5px 0 5px;}
-
 	#comment{width:380px;}
-
 	#submit{background:#333; border:#eee 1px solid; color:#fff; height:30px; margin-left:110px; cursor:pointer;}
-
 	#submit:hover{background:#000;}
-
 	
-
 	ol.commentlist{margin-left:80px;}
-
 	ol.commentlist li{padding:15px; background:#fff; border-bottom:#eee 1px dotted;}
-
 	ol.commentlist li.alt{background:#f5f5f5;}
-
 	ol.commentlist .comment-content{padding:10px 0;}
-
 	ol.commentlist .comment-content a{color:#39c;}
-
 	ol.commentlist small{font-size:11px;}
-
 	ol.commentlist .avatar{display:none;}
-
 	ol.commentlist .comment-meta{margin-bottom:5px;}
-
 	ol.commentlist b.auth a{font-weight:bold; color:#06c;}
-
 	
-
 /* FOOTER */
-
 #bottom-box a{color:#666;}
-
 #bottom-box .box-wide, #bottom-box .box-narrow{width:250px; float:left; margin-right:35px;}
-
 #bottom-box .box-narrow{width:160px;}
-
 #bottom-box  h3{color:#000; font-size:14px; line-height:1; margin-bottom:10px; font-weight:bold; text-transform:uppercase;}
-
 #bottom-box li{padding:10px 0; background:url(images/duo.gif) repeat-x bottom;}
-
-
 
 #footer a{color:#fff;}
 
-
-
 /* OTHER */
-
 .clear{clear:both;}
-
 .al-right{float:right;}
 
-
-
 #mantra {
-
-background:url(images/mantra.png) no-repeat top center;
-
-width:960px;
-
-height:65px;
-
-margin:10px 0 15px 0;
-
+  background:url(images/mantra.png) no-repeat top center;
+  width:960px;
+  height:65px;
+  margin:10px 0 15px 0;
 }
 
-	#mantra h3 {
-
+#mantra h3 {
 	font-family: 'Trebuchet MS', Helvetica, sans-serif;
-
 	color:#999;
-
 	text-align:center;
-
 	padding:30px 0 0 0;
-
 	margin:0;
-
 	font-size:14px;
-
-	}
+}
 
 #slides {
-
-background:url(images/rotator-bg.jpg) no-repeat top center;
-
-padding:27px 0 41px 21px;-
-
+  background:url(images/rotator-bg.jpg) no-repeat top center;
+  padding:27px 0 41px 21px;-
 }
 
-
-
 #footer .holder {
-
-display:none;
-
+  display:none;
 }
 
 #videos {
-
-padding:15px 70px 15px 50px !important;
-
+  padding:15px 70px 15px 50px !important;
 }
 
 .vid-slides {
-
-padding-bottom:10px;
-
-position:relative;
-
-height:121px;
-
+  padding-bottom:10px;
+  position:relative;
+  height:121px;
 }
 
 .vid-slides a {
-
-display:block;
-
-width:200px;
-
-height:121px;
-
-position:absolute;
-
-top:0;
-
-left:0;
-
-z-index:99999;
-
+  display:block;
+  width:200px;
+  height:121px;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:99999;
 }
 
 #sidebar p.drew {
-
-padding:20px 10px;
-
-background:transparent url(images/duo.gif) repeat-x scroll center top;
-
-margin:0;
-
+  padding:20px 10px;
+  background:transparent url(images/duo.gif) repeat-x scroll center top;
+  margin:0;
 }
 
 ul.hf-subscribe {
-
-margin:0;
-
-overflow:hidden;
-
-padding:20px 0;
-
-background:url(images/duo.gif) repeat-x bottom;
-
+  margin:0;
+  overflow:hidden;
+  padding:20px 0;
+  background:url(images/duo.gif) repeat-x bottom;
 }
 
 #main-panel h2.big {
-
-border-bottom:1px solid #E1E1E1;
-
-font-size:22px;
-
-line-height:40px;
-
-margin:0 0 20px;
-
-text-transform:uppercase;
-
-background:url(images/ico_cal.png) no-repeat 0 4px;
-
-padding:0 0 0 40px;
-
+  border-bottom:1px solid #E1E1E1;
+  font-size:22px;
+  line-height:40px;
+  margin:0 0 20px;
+  text-transform:uppercase;
+  background:url(images/ico_cal.png) no-repeat 0 4px;
+  padding:0 0 0 40px;
 }
 
 #sidebar #sliding_cart {
-
-padding:10px;
-
-border:5px solid #42A6D4;
-
+  padding:10px;
+  border:5px solid #42A6D4;
 }
 
 #main-panel a.wpsc_edit_product {
-
-display:none;
-
+  display:none;
 }
 
 #main-panel h2.prodtitles {
-
-font-size:18px;
-
-line-height:18px;
-
+  font-size:18px;
+  line-height:18px;
 }
 
 #main-panel h2.prodtitles a.wpsc_product_title {
-
-color:#189CC4;
-
+  color:#189CC4;
 }
 
 h5.sub {
-
-border-bottom:1px solid #E1E1E1;
-
-color:#666666;
-
-font-size:12px;
-
-margin-bottom:10px;
-
+  border-bottom:1px solid #E1E1E1;
+  color:#666666;
+  font-size:12px;
+  margin-bottom:10px;
 }
 
-
-
 #ngg-webslice h3 {
-
-display:none;}
-
-
+  display:none;
+}
 
 .post-content .alignleft {
-
-margin:0 30px 10px 0;
-
+  margin:0 30px 10px 0;
 }
 
 .post-content .alignright {
-
-margin:0 0 10px 30px;
-
+  margin:0 0 10px 30px;
 }
 
 #donation_amounts {
-
-clear:left;
-
-overflow:hidden;
-
-margin-bottom:30px;
-
+  clear:left;
+  overflow:hidden;
+  margin-bottom:30px;
 }
 
 #donation_amounts a {
-
-float:left;
-
-font-size:10px;
-
-color:#999;
-
+  float:left;
+  font-size:10px;
+  color:#999;
 }
 
 #impact {
-
-clear:left;
-
-font-family:Georgia, "Times New Roman", Times, serif;
-
+  clear:left;
+  font-family:Georgia, "Times New Roman", Times, serif;
 }
 
-	#impact h3 {
-
+#impact h3 {
 	font-size:12px;
+}
 
-	}
-
-	#impact h2 {
-
+#impact h2 {
 	font-size:22px;
-
 	margin-bottom:10px;
+}
 
-	}
-
-		#impact h2 span.underline {
-
-		text-decoration:underline;
-
-		font-weight:bold;
-
-		}
+#impact h2 span.underline {
+  text-decoration:underline;
+	font-weight:bold;
+}
 
 #paypal h6 {
-
-margin:10px 0 0 0;
-
-font-size:10px;
-
-color:#666666;
-
+  margin:10px 0 0 0;
+  font-size:10px;
+  color:#666666;
 }
 
 #amount {
-
-width:15px;
-
-background:none;
-
+  width:15px;
+  background:none;
 }
 
 #donation_box {
-
-display:none;
-
+  display:none;
 }
 
 #paypal {
-
-border:5px solid #42A6D4;
-
-padding:20px;
-
-margin:10px 0;
-
+  border:5px solid #42A6D4;
+  padding:20px;
+  margin:10px 0;
 }
 
 #slider {
-
-width:560px !important;
-
+  width:560px !important;
 }
 
 #people_text {
-
-font-weight:bold;
-
-color:#0F93D6;
-
+  font-weight:bold;
+  color:#0F93D6;
 }
 
 #impact {
-
-width:580px !important;
-
+  width:580px !important;
 }
 
 ul.donate {
-
-list-style:none;
-
-margin:0;
-
-padding:0;
-
-font-size:11px;
-
-line-height:16px;
-
+  list-style:none;
+  margin:0;
+  padding:0;
+  font-size:11px;
+  line-height:16px;
 }
 
 #donation_amount {
-
-color:#0F93D6;
-
-font-weight:bold;
-
+  color:#0F93D6;
+  font-weight:bold;
 }
 
 #bios-table {
-
-font-size:10px;
-
-line-height:14px;
-
+  font-size:10px;
+  line-height:14px;
 }
 
 #bios-table img {
-
-padding-top:20px;
-
+  padding-top:20px;
 }
 
-
-
 #paypal .ui-slider .ui-slider-handle {
-
-border:2px solid #0F93D6;
-
-background:#C9FAFF;
-
+  border:2px solid #0F93D6;
+  background:#C9FAFF;
 }
 
 #paypal .ui-slider {
-
-border:1px solid #0F93D6;
-
-background:#C9FAFF;
-
+  border:1px solid #0F93D6;
+  background:#C9FAFF;
 }
 
 .ngg-slideshow {
 	margin:0 auto;
 }
+
 .ngg-slideshow img {
 	position:relative !important;
 	text-align:center !important;
